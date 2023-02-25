@@ -211,7 +211,7 @@ def main():
             lda_viz = gensimvis.prepare(tweets_lda, tweets_bow, dictionary=tweets_lda.id2word)
             html_string = pyLDAvis.prepared_data_to_html(lda_viz)
             from streamlit import components
-            components.v1.html(html_string, width=1050, height=800)
+            components.v1.html(html_string, width=1150, height=800)
 
         def wordcloud(data):
             all_words = [word for tweet in data['cleanedTweets'] for word in tweet]
