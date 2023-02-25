@@ -263,7 +263,7 @@ def main():
         if st.button("Wordcloud"):
             # st.markdown(html_temp, unsafe_allow_html=True)
             wordcloud(data)
-        if st.button("frequently repeated topics dashboard"):
+        if st.button("Frequently repeated topics dashboard"):
             # st.markdown(html_temp, unsafe_allow_html=True)
             topicmodeling(data)
 
