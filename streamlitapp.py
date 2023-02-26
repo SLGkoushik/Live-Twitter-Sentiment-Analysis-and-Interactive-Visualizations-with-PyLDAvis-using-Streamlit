@@ -29,7 +29,7 @@ def main():
         return df
 
     html_temp = """
-    	<div style="background-color:tomato;"><p style="color:white;font-size:40px;padding:9px">Live Sentiment Analysis and Interactive Topic Modeling of Twitter Data</p></div>
+    	<div style="background-color:tomato;"><p style="color:white;font-size:40px;padding:9px">Live Twitter Sentiment Analysis</p></div>
     	"""
     st.markdown(html_temp, unsafe_allow_html=True)
     Topic = str()
