@@ -29,7 +29,7 @@ def main():
         return df
 
     html_temp = """
-    	<div style="background-color:tomato;"><p style="color:white;font-size:40px;padding:9px">Live Twitter Sentiment Analysis</p></div>
+    	<div style="background-color:tomato;"><p style="color:white;font-size:40px;padding:9px">Live twitter Sentiment analysis</p></div>
     	"""
     st.markdown(html_temp, unsafe_allow_html=True)
     Topic = str()
@@ -58,13 +58,12 @@ def main():
             nltk.download('omw-1.4')
 
             from nltk.corpus import stopwords
-
-            stop_words = stopwords.words('english')
+            from nltk.tokenize import word_tokenize
 
             def Tweetcleaning(tweet):
                 clean_tweet = re.sub(r"@[a-zA-Z0-9]*", "", tweet)
                 clean_tweet = re.sub(r"#[a-zA-Z0-9\s]*", "", clean_tweet)
-                clean_tweet = ' '.join(word for word in clean_tweet.split() if word not in stop_words)
+
                 return clean_tweet
 
             data['cleanedTweets'] = data['tweets'].apply(Tweetcleaning)
@@ -81,6 +80,19 @@ def main():
             data['cleanedTweets'] = data['cleanedTweets'].apply(remove_nums)
 
             data.head(3)
+
+            def clean_stop_words(tweet):
+                stop_words = set(stopwords.words('english'))
+
+                filtered_sentence = []
+
+                for w in tweet.split():
+                    if w not in stop_words:
+                        filtered_sentence.append(w)
+                clean_tweet = ' '.join([word for word in filtered_sentence if len(word) > 3])
+                return clean_tweet
+
+            data['cleanedTweets'] = data['cleanedTweets'].apply(clean_stop_words)
 
             from nltk import word_tokenize
             from nltk.stem import WordNetLemmatizer
@@ -211,7 +223,7 @@ def main():
             lda_viz = gensimvis.prepare(tweets_lda, tweets_bow, dictionary=tweets_lda.id2word)
             html_string = pyLDAvis.prepared_data_to_html(lda_viz)
             from streamlit import components
-            components.v1.html(html_string, width=1200, height=800)
+            components.v1.html(html_string, width=1300, height=800)
 
         def wordcloud(data):
             all_words = [word for tweet in data['cleanedTweets'] for word in tweet]
@@ -263,7 +275,7 @@ def main():
         if st.button("Wordcloud"):
             # st.markdown(html_temp, unsafe_allow_html=True)
             wordcloud(data)
-        if st.button("Frequently repeated topics dashboard"):
+        if st.button("See Top 5 Topics"):
             # st.markdown(html_temp, unsafe_allow_html=True)
             topicmodeling(data)
 
