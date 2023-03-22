@@ -269,7 +269,8 @@ def main():
                                 padding: 10px 20px;
                                 border-radius: 4px;
                                 font-size: 16px;
-                                width:30%;
+                                max-width:100%;
+                                width:500px;
                                 
                                 }
                                 </style>
