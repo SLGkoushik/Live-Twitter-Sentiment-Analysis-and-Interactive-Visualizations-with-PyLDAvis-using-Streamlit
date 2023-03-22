@@ -384,7 +384,7 @@ def main():
                 plt.axis("off")
                 plt.tight_layout(pad=0)
                 st.pyplot()
-            if st.button("Year wise sentiments"):
+            if st.button("Year Wise Sentiments"):
                 def get_tweet(topic, count, year1, year2):
                     query = "(from:#{}) until:{}-01-01 since:{}-01-01".format(topic, year2, year1)
                     tweets = []
