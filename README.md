@@ -1,7 +1,11 @@
 # https://slgkoushik-live-twitter-sentiment-analysis--streamlitapp-rmyrce.streamlit.app/
 #Usage
 To start the application, run the following command:
-('''streamlit run your_script_name.py''')
+<pre>
+    <code>
+        streamlit run your_script_name.py
+    </code>
+</pre>
 Replace your_script_name.py with the filename of the Python script containing the code provided.
 # Application Features
 ### The application provides the following features:
