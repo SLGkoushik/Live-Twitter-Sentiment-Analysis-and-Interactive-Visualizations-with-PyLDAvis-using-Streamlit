@@ -1,5 +1,25 @@
 # https://slgkoushik-live-twitter-sentiment-analysis--streamlitapp-rmyrce.streamlit.app/
-#Usage
+#Twitter Sentiment Analysis
+This application performs sentiment analysis on Twitter data related to a specific topic. It uses the streamlit library for the user interface and incorporates various natural language processing techniques for text preprocessing and sentiment classification.
+# Setup
+To run the application, you need to install the required dependencies. You can do this by running the following command:
+<pre>
+    <code>
+       pip install streamlit numpy pandas matplotlib seaborn snscrape nltk vaderSentiment
+    </code>
+</pre>
+You also need to download additional resources for the NLTK library. Open a Python terminal and run the following commands:
+<pre>
+    <code>
+       import nltk
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
+
+    </code>
+</pre>
+# Usage
 To start the application, run the following command:
 <pre>
     <code>
